@@ -14,18 +14,18 @@ class JournalistsController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $journalists = Journalist::all();
+return view('journalists.index')->with('journalists', $journalists);
+    }//endfunction
 
     /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    public function create(){
+return view('journalists.create');
+    }//endfunction
 
     /**
      * Store a newly created resource in storage.
@@ -33,10 +33,12 @@ class JournalistsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
-    }
+    public function store(Request $request){
+$journalist = new Journalist;
+$journalist->name = $request->name;
+$journalist->description = $request->description;
+$journalist->save();
+    }//endfunction
 
     /**
      * Display the specified resource.
