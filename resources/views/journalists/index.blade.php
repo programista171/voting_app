@@ -9,7 +9,7 @@
 				<td>OPIS</td>
 				<td>WIZERUNEK</td>
 			</tr>
-			@foreach($posts as $post)
+			@foreach($journalists as $journalist)
 				<tr>
 					<td>0</td>
 					<td>{{$journalist->name}}</td>

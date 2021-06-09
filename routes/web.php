@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+//Use App\Http\Controllers\JournalistsController::class;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::resource('journalists', 'JournalistsController');
+Route::resource('journalists', App\Http\Controllers\JournalistsController::class);
