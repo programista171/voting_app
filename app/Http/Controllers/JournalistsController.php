@@ -46,10 +46,9 @@ $journalist->save();
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
-    public function show(Journalist $journalist)
-    {
-        //
-    }
+    public function show(Journalist $journalist){
+
+    }//endfunction
 
     /**
      * Show the form for editing the specified resource.
@@ -57,10 +56,9 @@ $journalist->save();
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Journalist $journalist)
-    {
-        //
-    }
+    public function edit(Journalist $journalist){
+return view('journalists.edit')->with('journalist', $journalist);
+    }//endfunction
 
     /**
      * Update the specified resource in storage.
@@ -69,10 +67,9 @@ $journalist->save();
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Journalist $journalist)
-    {
-        //
-    }
+    public function update(Request $request, Journalist $journalist){
+$content = 
+    }//endfunction
 
     /**
      * Remove the specified resource from storage.
@@ -80,8 +77,7 @@ $journalist->save();
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Journalist $journalist)
-    {
-        //
+    public function destroy(Journalist $journalist){
+$journalist->delete();
     }
-}
+}//endclass

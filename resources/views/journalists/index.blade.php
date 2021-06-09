@@ -2,19 +2,20 @@
 
 @section('content')
 	@if(count($journalists) > 0)
-		<table>
+		<table border="3px">
 			<tr>
-				<td>LP</td>
-				<td>IMIĘ I NAZWISKO</td>
-				<td>OPIS</td>
-				<td>WIZERUNEK</td>
+				<th>LP</th>
+				<th>IMIĘ I NAZWISKO</th>
+				<th>OPIS</th>
+				<th>WIZERUNEK</th>
 			</tr>
 			@foreach($journalists as $journalist)
 				<tr>
-					<td>0</td>
-					<td>{{$journalist->name}}</td>
+					<td>{{ ++$i }}</td>
+					<td><a href="/journalists/{{ $journalist->id }}">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
 					<td>-</td>
+					<td><a href="/journalists/{{ $journalist->id }}">Edytuj</a></td>
 				</tr>
 			@endforeach
 		</table>
