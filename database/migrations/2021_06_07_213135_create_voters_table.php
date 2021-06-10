@@ -15,6 +15,7 @@ class CreateVotersTable extends Migration
     {
         Schema::create('voters', function (Blueprint $table) {
             $table->id();
+$table->ipAddress('address');
             $table->timestamps();
         });
     }

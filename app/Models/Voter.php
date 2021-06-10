@@ -5,10 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Journalist extends Model
+class Voter extends Model
 {
     use HasFactory;
-Protected $fillable =[
-'Name', 'description'
-];
 }

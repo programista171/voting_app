@@ -11,7 +11,7 @@
 			</tr>
 			@foreach($journalists as $journalist)
 				<tr>
-					<td>{{ ++$i }}</td>
+					<td></td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
 					<td>-</td>

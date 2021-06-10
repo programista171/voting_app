@@ -12,11 +12,10 @@ class JournalistsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        $journalists = Journalist::all();
-return view('journalists.index')->with('journalists', $journalists);
-    }//endfunction
+    public function index(){
+$journalists = Journalist::all();
+return view('admin.journalists.index')->with('journalists', $journalists);
+}//endfunction
 
     /**
      * Show the form for creating a new resource.
@@ -24,8 +23,8 @@ return view('journalists.index')->with('journalists', $journalists);
      * @return \Illuminate\Http\Response
      */
     public function create(){
-return view('journalists.create');
-    }//endfunction
+return view('admin.journalists.create');
+}//endfunction
 
     /**
      * Store a newly created resource in storage.
@@ -57,7 +56,7 @@ $journalist->save();
      * @return \Illuminate\Http\Response
      */
     public function edit(Journalist $journalist){
-return view('journalists.edit')->with('journalist', $journalist);
+return view('admin.journalists.edit')->with('journalist', $journalist);
     }//endfunction
 
     /**
@@ -68,11 +67,17 @@ return view('journalists.edit')->with('journalist', $journalist);
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Journalist $journalist){
+/*
 $request->validate([
 'title' => 'required',
 'description' => 'required'
         ]);
+
+*/
 $journalist->update($request->all());
+//var_dump($journalist);
+//exit();
+//$journalist->save();
 return 'Well done!';
 }//endfunction
 
