@@ -2,7 +2,7 @@
 
 @section('content')
 	@if(count($journalists) > 0)
-		<table border="3px">
+		<table class="table table-bordered">
 			<tr>
 				<th>LP</th>
 				<th>IMIĘ I NAZWISKO</th>
@@ -12,10 +12,10 @@
 			@foreach($journalists as $journalist)
 				<tr>
 					<td>{{ ++$i }}</td>
-					<td><a href="/journalists/{{ $journalist->id }}">{{ $journalist->name }}</a></td>
+					<td><a href="{{ route('journalists.edit',$journalist->id) }}">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
 					<td>-</td>
-					<td><a href="/journalists/{{ $journalist->id }}">Edytuj</a></td>
+					<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>
 				</tr>
 			@endforeach
 		</table>

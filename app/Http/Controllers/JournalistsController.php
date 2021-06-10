@@ -68,8 +68,13 @@ return view('journalists.edit')->with('journalist', $journalist);
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Journalist $journalist){
-$content = 
-    }//endfunction
+$request->validate([
+'title' => 'required',
+'description' => 'required'
+        ]);
+$journalist->update($request->all());
+return 'Well done!';
+}//endfunction
 
     /**
      * Remove the specified resource from storage.
