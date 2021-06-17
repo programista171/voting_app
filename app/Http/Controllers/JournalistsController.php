@@ -37,7 +37,8 @@ $journalist = new Journalist;
 $journalist->name = $request->name;
 $journalist->description = $request->description;
 $journalist->save();
-    }//endfunction
+return redirect('/admin/journalists')->with('success', 'Dziennikarz został dodany');
+}//endfunction
 
     /**
      * Display the specified resource.

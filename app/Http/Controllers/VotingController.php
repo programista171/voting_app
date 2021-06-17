@@ -81,7 +81,7 @@ $vote->voter_id =
  Voter::where('address', '=', $request->ip())->first()->id;
 $vote->journalist_id = $request->id;
 $vote->save();
-Return 'Well done!';
+return redirect('/')->with('successful', 'Głos został oddany');
 }//endfunction
 
     /**

@@ -1,8 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+@if(isset($success))
+<p>{{$success}}</p>
+@endif
+<h1>Dotychczas dodani dziennikarze</h1>
+<a href="/admin/journalists/create">Dodaj dziennikarza</a>
 	@if(count($journalists) > 0)
-		<table class="table table-bordered">
+		<table border="3px" class="table table-bordered">
 			<tr>
 				<th>LP</th>
 				<th>IMIĘ I NAZWISKO</th>
