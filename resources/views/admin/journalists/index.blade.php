@@ -12,6 +12,7 @@
 				<th>LP</th>
 				<th>IMIĘ I NAZWISKO</th>
 				<th>OPIS</th>
+<th>Liczba głosów<th>
 				<th>WIZERUNEK</th>
 			</tr>
 			@foreach($journalists as $journalist)
@@ -19,6 +20,7 @@
 					<td></td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
+<td>{{count($journalist->votes)}}</td>
 					<td>-</td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>
 				</tr>
