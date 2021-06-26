@@ -10,19 +10,25 @@
 		<table border="3px" class="table table-bordered">
 			<tr>
 				<th>LP</th>
+<th>Wizerunek</th>
 				<th>IMIĘ I NAZWISKO</th>
 				<th>OPIS</th>
 <th>Liczba głosów<th>
-				<th>WIZERUNEK</th>
+<th>Edytuj</th>
+<th>Pokaż głosy</th>
 			</tr>
 			@foreach($journalists as $journalist)
 				<tr>
 					<td></td>
+<td>Zdjęcie</td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
 <td>{{count($journalist->votes)}}</td>
-					<td>-</td>
-					<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>
+										<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>
+<td><form action="" method="POST">
+@csrf
+</form>
+</td>
 				</tr>
 			@endforeach
 		</table>
