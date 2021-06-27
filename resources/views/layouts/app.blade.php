@@ -8,5 +8,6 @@
 <body>
 @include('layouts.menu')
 @yield('content')
+@include('layouts.footer')
 </body>
 </html>
