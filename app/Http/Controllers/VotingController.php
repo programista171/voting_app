@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 Use App\Models\Journalist;
 Use App\Models\Voter;
 Use App\Models\Vote;
+Use App\Http\Controllers\JournalistsController;
 
 use Illuminate\Http\Request;
 
@@ -14,9 +15,14 @@ class VotingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request){
+    public function index(){
 $journalists = Journalist::all();
-//Echo $request->ip();
+return view('front.index')->with('journalists', $journalists);
+}//endfunction
+
+
+Public function saveIp(Request $request){
+$journalists = Journalist::all();
 $voter = Voter::where('address', '=', $request->ip())->first();
 //jeśli odwiedzamy stronę po raz pierwszy, zapisujemy IP do bazy danych
 if(is_null($voter)){
@@ -25,8 +31,9 @@ $voter->address = $request->ip();
 $voter->save();
 }//endif
 $wereVoted = $voter->votes->pluck('journalist_id')->toArray();
-return view('front.index')->with('journalists', $journalists)->with('voter', $voter)->with('wereVoted', $wereVoted);
+return view('front.voting')->with('journalists', $journalists)->with('voter', $voter)->with('wereVoted', $wereVoted);
 }//endfunction
+
 
     /**
      * Show the form for creating a new resource.
@@ -53,10 +60,9 @@ return view('front.index')->with('journalists', $journalists)->with('voter', $vo
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        //
-    }
+    public function show(Journalist $journalist){
+return view('front.show')->with('journalist', $journalist);
+}//endfunction
 
     /**
      * Show the form for editing the specified resource.
