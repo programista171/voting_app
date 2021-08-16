@@ -1,5 +1,7 @@
+<nav>
 <ul>
-<li><a href="{{route('journalists.index')}}">Strona główna</a></li>
-<li><a href="{{route('voting')}}">Zagłosuj</a></li>
+<li><a href="/">Strona główna</a></li>
+<li><a href="vote">Zagłosuj</a></li>
 <li><a href="">Pokaż wyniki</a></li>
 </ul>
+</nav>

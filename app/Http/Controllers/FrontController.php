@@ -5,10 +5,12 @@ Use App\Models\Journalist;
 Use App\Models\Voter;
 Use App\Models\Vote;
 Use App\Http\Controllers\JournalistsController;
+Use App\Http\Controllers\FrontController;
+
 
 use Illuminate\Http\Request;
 
-class VotingController extends Controller
+class FrontController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +23,7 @@ return view('front.index')->with('journalists', $journalists);
 }//endfunction
 
 
-Public function saveIp(Request $request){
+Public function vote(Request $request){
 $journalists = Journalist::all();
 $voter = Voter::where('address', '=', $request->ip())->first();
 //jeśli odwiedzamy stronę po raz pierwszy, zapisujemy IP do bazy danych
@@ -41,7 +43,7 @@ return view('front.voting')->with('journalists', $journalists)->with('voter', $v
      * @return \Illuminate\Http\Response
      */
     public function create(){
-
+Echo "It works!";
 }//endfunction
 
     /**
@@ -61,7 +63,7 @@ return view('front.voting')->with('journalists', $journalists)->with('voter', $v
      * @return \Illuminate\Http\Response
      */
     public function show(Journalist $journalist){
-return view('front.show')->with('journalist', $journalist);
+Return view('front.show')->with('journalist', $journalist);
 }//endfunction
 
     /**
@@ -83,11 +85,10 @@ return view('front.show')->with('journalist', $journalist);
      */
     public function update(Request $request, Vote $vote){
 $vote = new Vote;
-$vote->voter_id =
- Voter::where('address', '=', $request->ip())->first()->id;
+$vote->voter_id = Voter::where('address', '=', $request->ip())->first()->id;
 $vote->journalist_id = $request->id;
 $vote->save();
-return redirect('/')->with('successful', 'Głos został oddany');
+return redirect('vote')->with('successful', 'Głos został oddany');
 }//endfunction
 
     /**

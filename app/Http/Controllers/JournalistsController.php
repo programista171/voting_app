@@ -37,7 +37,7 @@ $journalist = new Journalist;
 $journalist->name = $request->name;
 $journalist->description = $request->description;
 $journalist->save();
-return redirect('/admin/journalists')->with('success', 'Dziennikarz został dodany');
+return redirect('journalists')->with('success', 'Dziennikarz został dodany');
 }//endfunction
 
     /**
@@ -47,8 +47,8 @@ return redirect('/admin/journalists')->with('success', 'Dziennikarz został doda
      * @return \Illuminate\Http\Response
      */
     public function show(Journalist $journalist){
-
-    }//endfunction
+Return view('/admin.journalists.show')->with('journalist', $journalist);
+}//endfunction
 
     /**
      * Show the form for editing the specified resource.
@@ -79,7 +79,8 @@ $journalist->update($request->all());
 //var_dump($journalist);
 //exit();
 //$journalist->save();
-return 'Well done!';
+
+return redirect('journalists')->with('success', 'Edytowano');
 }//endfunction
 
     /**
@@ -90,5 +91,7 @@ return 'Well done!';
      */
     public function destroy(Journalist $journalist){
 $journalist->delete();
-    }
+
+
+return redirect('journalists')->with('success', 'Dziennikarz został usunięty');    }
 }//endclass

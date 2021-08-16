@@ -17,6 +17,7 @@ class CreateJournalistsTable extends Migration
             $table->id();
 $table->string('name');
 $table->text('description');
+$table->string('image')->default('images/default.jpg');
             $table->timestamps();
         });
     }

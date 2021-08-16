@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 //Use App\Http\Controllers\JournalistsController;
 
+//Use App\Http\Controllers\FrontController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +16,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [App\Http\Controllers\VotingController::class, 'index']);
-Route::resource('/admin/journalists', App\Http\Controllers\JournalistsController::class);
-Route::resource('journalists', App\Http\Controllers\VotingController::class);
-//Route::get('/', [App\Http\Controllers\VotingController::class, 'index'])->name('index');
-//Route::get('/show/{$id}', [App\Http\Controllers\VotingController::class, 'show'])->name('show');
-Route::get('/vote', [App\Http\Controllers\VotingController::class, 'saveIp'])->name('voting');
-Route::put('/vote', [App\Http\Controllers\VotingController::class, 'update'])->name('voting.update');
+
+
+
+//for displaying front page
+Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
+
+
+Route::resource('front', 'App\Http\Controllers\FrontController');
+
+//for voting
+Route::get('vote', [App\Http\Controllers\FrontController::class, 'vote']);
+
+
+
+Route::resource('journalists', 'App\Http\Controllers\JournalistsController');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

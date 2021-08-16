@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
 @section('content')
 	<h1>Dodaj dziennikarza</h1>
