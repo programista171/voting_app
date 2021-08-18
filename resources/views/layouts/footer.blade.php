@@ -1,3 +1,3 @@
 <footer>
-<p>Projekt i wykonanie: Kamil Wiśniewski</p>
+	<p>Projekt i wykonanie: Kamil Wiśniewski</p>
 </footer>

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2>Oddaj swój głos!</h2>
+	<h2>Oddaj swój głos!</h2>
 	@if(count($journalists) > 0)
 		<table border="3px" class="table table-bordered">
 			<tr>
@@ -15,21 +15,21 @@
 					<td>Zdjęcie</td>
 					<td>{{ $journalist->name }}</td>
 					<td>
-@if(!in_array($journalist->id, $wereVoted))
-@if(count($voter->votes)<5)
-<form action="{{ route('front.update',$journalist->id) }}" method="POST">
-@csrf
-@method('put')
-<input type="hidden" name="id" value="{{ $journalist->id }}">
-<button type="submit">Zagłosuj</button>
-</form>
-@else
-<p>Oddano maksymalną liczbę głosów</p>
-@endif
-@else
-<p>Zagłosowano</p>
-@endif
-</td>
+						@if(!in_array($journalist->id, $wereVoted))
+							@if(count($voter->votes)<5)
+								<form action="{{ route('front.update',$journalist->id) }}" method="POST">
+									@csrf
+									@method('put')
+									<input type="hidden" name="id" value="{{ $journalist->id }}">
+									<button type="submit">Zagłosuj</button>
+								</form>
+								@else
+									<p>Oddano maksymalną liczbę głosów</p>
+								@endif
+						@else
+								<p>Zagłosowano</p>
+					@endif
+				</td>
 				</tr>
 			@endforeach
 		</table>
