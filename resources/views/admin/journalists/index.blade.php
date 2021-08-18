@@ -25,6 +25,7 @@
 					<td>{{count($journalist->votes)}}</td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>
 					<td><a href="{{ route('journalists.destroy',$journalist->id) }}">Usuń</a></td>
+					<td><a href="{{ url('journalists/votes',$journalist->id) }}">Pokaż głosy</a></td>
 				</tr>
 			@endforeach
 		</table>

@@ -29,6 +29,9 @@ Route::resource('front', 'App\Http\Controllers\FrontController');
 Route::get('vote', [App\Http\Controllers\FrontController::class, 'vote']);
 
 
+//for showing who voted for a journalists
+Route::get('journalists/votes/{journalist}', [App\Http\Controllers\JournalistsController::class, 'showVotes']);
+
 
 Route::resource('journalists', 'App\Http\Controllers\JournalistsController');
 
@@ -36,5 +39,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::middleware('auth')->group(function(){
+//only for logged users
+/*Route::middleware('auth')->group(function(){
 ));
+*/

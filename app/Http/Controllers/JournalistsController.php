@@ -85,7 +85,11 @@ class JournalistsController extends Controller {
      */
 	public function destroy(Journalist $journalist){
 		$journalist->delete();
+		return redirect('journalists')->with('success', 'Dziennikarz został usunięty');
+	}//endfunction
 
-
-		return redirect('journalists')->with('success', 'Dziennikarz został usunięty');    }
+	public function showVotes(Journalist $journalist){
+//$journalist = Journalist::find(3);
+		Return view('admin.journalists.votes')->with('journalist', $journalist);
+	}//endfunction
 	}//endclass
