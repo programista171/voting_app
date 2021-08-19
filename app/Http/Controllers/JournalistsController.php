@@ -89,7 +89,6 @@ class JournalistsController extends Controller {
 	}//endfunction
 
 	public function showVotes(Journalist $journalist){
-//$journalist = Journalist::find(3);
 		Return view('admin.journalists.votes')->with('journalist', $journalist);
 	}//endfunction
 	}//endclass
