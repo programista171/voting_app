@@ -19,27 +19,18 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//for displaying front page
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
 
 
 Route::resource('front', 'App\Http\Controllers\FrontController');
 
-//for voting
 Route::get('vote', [App\Http\Controllers\FrontController::class, 'vote']);
-
-
-//for showing who voted for a journalists
-Route::get('journalists/votes/{journalist}', [App\Http\Controllers\JournalistsController::class, 'showVotes']);
-
-
-Route::resource('journalists', 'App\Http\Controllers\JournalistsController');
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//only for logged users
-/*Route::middleware('auth')->group(function(){
-));
-*/
+Route::group(['middleware' => 'auth'], function(){
+Route::resource('journalists', 'App\Http\Controllers\JournalistsController');
+Route::get('journalists/votes/{journalist}', [App\Http\Controllers\JournalistsController::class, 'showVotes']);
+});
