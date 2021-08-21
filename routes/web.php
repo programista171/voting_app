@@ -20,16 +20,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
-
-
 Route::resource('front', 'App\Http\Controllers\FrontController');
-
 Route::get('vote', [App\Http\Controllers\FrontController::class, 'vote']);
-
 Auth::routes();
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 Route::group(['middleware' => 'auth'], function(){
 Route::resource('journalists', 'App\Http\Controllers\JournalistsController');
 Route::get('journalists/votes/{journalist}', [App\Http\Controllers\JournalistsController::class, 'showVotes']);
