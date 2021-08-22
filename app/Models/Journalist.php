@@ -13,9 +13,9 @@ Protected $fillable =[
 ];
 
 	Public function votes(){
-		Return $this->hasMany(Vote::class, 'journalist_id');
+		Return $this->hasMany(Vote::class);
 	}//endfunction
 	Public function voters(){
-		Return $this->hasMany(Vote::class, 'journalist_id');
+		Return $this->hasMany(Voter::class);
 	}//endfunction
 }

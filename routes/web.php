@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [App\Http\Controllers\FrontController::class, 'index']);
+Route::get('results', [App\Http\Controllers\FrontController::class, 'showResults']);
 Route::resource('front', 'App\Http\Controllers\FrontController');
 Route::get('vote', [App\Http\Controllers\FrontController::class, 'vote']);
 Auth::routes();

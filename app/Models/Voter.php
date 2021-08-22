@@ -9,6 +9,6 @@ class Voter extends Model
 {
     use HasFactory;
 	Public function votes(){
-		Return $this->hasMany(Vote::class, 'voter_id');
+		Return $this->hasMany(Vote::class);
 	}//endfunction
 }

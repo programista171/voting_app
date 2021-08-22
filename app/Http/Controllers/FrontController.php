@@ -66,4 +66,9 @@ $voter = new Voter;
 		return redirect('vote')->with('successful', 'Głos został oddany');
 	}//endfunction
 
+public function showResults(){
+$journalists = Journalist::all();
+return view('front.results')->with('journalists', $journalists);
+}//endfunction
+
 }

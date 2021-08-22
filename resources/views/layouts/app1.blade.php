@@ -60,6 +60,8 @@ bottom: 0;
 </style>
 <title>Dziennikarze</title>
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js'></script>
 </head>
 <body>
 <div id="zaw">

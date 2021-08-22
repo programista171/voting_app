@@ -9,10 +9,10 @@ class Vote extends Model
 {
     use HasFactory;
 	Public function voter(){
-		Return $this->belongsTo(Voter::class, 'voter_id');
+		Return $this->belongsTo(Voter::class);
 	}//endfunction
 
 	Public function journalist(){
-		Return $this->belongsTo(Journalist::class, 'journalist_id');
+		Return $this->belongsTo(Journalist::class);
 	}//endfunction
 }
