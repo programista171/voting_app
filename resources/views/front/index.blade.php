@@ -7,4 +7,5 @@
 		<h2>{{$journalist->name}}</h2>
 		<p>{{$journalist->description}}</p>
 	@endforeach
+{!!$journalists->links()!!}
 @endsection

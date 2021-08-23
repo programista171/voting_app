@@ -8,14 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class Journalist extends Model
 {
     use HasFactory;
-Protected $fillable =[
-'Name', 'description'
-];
-
-	Public function votes(){
-		Return $this->hasMany(Vote::class);
+	protected $fillable =[
+		'Name', 'description'
+	];
+	public function votes(){
+		return $this->hasMany(Vote::class, 'journalist_id');
 	}//endfunction
-	Public function voters(){
-		Return $this->hasMany(Voter::class);
+	public function voters(){
+		return $this->hasMany(Vote::class, 'journalist_id');
 	}//endfunction
 }

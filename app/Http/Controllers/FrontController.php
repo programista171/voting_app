@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-Use App\Models\Journalist;
-Use App\Models\Voter;
-Use App\Models\Vote;
-Use App\Http\Controllers\JournalistsController;
-Use App\Http\Controllers\FrontController;
+use App\Models\Journalist;
+use App\Models\Voter;
+use App\Models\Vote;
+use App\Http\Controllers\JournalistsController;
+use App\Http\Controllers\FrontController;
 
 
 use Illuminate\Http\Request;
@@ -17,7 +17,7 @@ class FrontController extends Controller{
      * @return \Illuminate\Http\Response
      */
 	public function index(){
-		$journalists = Journalist::all();
+		$journalists = Journalist::paginate(5);;
 		return view('front.index')->with('journalists', $journalists);
 	}//endfunction
 
@@ -25,9 +25,8 @@ class FrontController extends Controller{
 	Public function vote(Request $request){
 		$journalists = Journalist::all();
 		$voter = Voter::where('address', '=', $request->ip())->first();
-//jeśli odwiedzamy stronę po raz pierwszy, zapisujemy IP do bazy danych
 		if(is_null($voter)){
-$voter = new Voter;			
+			$voter = new Voter;			
 			$voter->address = $request->ip();
 			$voter->save();
 		}//endif
@@ -66,9 +65,9 @@ $voter = new Voter;
 		return redirect('vote')->with('successful', 'Głos został oddany');
 	}//endfunction
 
-public function showResults(){
-$journalists = Journalist::all();
-return view('front.results')->with('journalists', $journalists);
-}//endfunction
+	public function showResults(){
+		$journalists = Journalist::all();
+		return view('front.results')->with('journalists', $journalists);
+	}//endfunction
 
 }

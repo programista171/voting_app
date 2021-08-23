@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Journalist;
 use Illuminate\Http\Request;
+use App\Http\Requests\JournalistStoreRequest;
+
 
 class JournalistsController extends Controller {
     /**
@@ -31,7 +33,8 @@ class JournalistsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-	public function store(Request $request){
+	public function store(JournalistStoreRequest $request){
+		$request = $request->validated();
 		$journalist = new Journalist;
 		$journalist->name = $request->name;
 		$journalist->description = $request->description;
@@ -67,13 +70,7 @@ class JournalistsController extends Controller {
      * @return \Illuminate\Http\Response
      */
 	public function update(Request $request, Journalist $journalist){
-		$request->validate([
-			'title' => 'required',
-			'description' => 'required'
-		]);
-
 		$journalist->update($request->all());
-
 		return redirect('journalists')->with('success', 'Edytowano');
 	}//endfunction
 
@@ -83,6 +80,7 @@ class JournalistsController extends Controller {
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
+
 	public function destroy(Journalist $journalist){
 		$journalist->delete();
 		return redirect('journalists')->with('success', 'Dziennikarz został usunięty');

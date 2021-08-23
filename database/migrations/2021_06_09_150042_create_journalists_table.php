@@ -15,9 +15,9 @@ class CreateJournalistsTable extends Migration
     {
         Schema::create('journalists', function (Blueprint $table) {
             $table->id();
-$table->string('name');
-$table->text('description');
-$table->string('image')->default('images/default.jpg');
+			$table->string('name');
+			$table->text('description');
+			$table->string('image')->default('images/default.jpg');
             $table->timestamps();
         });
     }

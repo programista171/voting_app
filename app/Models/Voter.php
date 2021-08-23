@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Voter extends Model
 {
     use HasFactory;
-	Public function votes(){
-		Return $this->hasMany(Vote::class);
+	public function votes(){
+		return $this->hasMany(Vote::class);
 	}//endfunction
 }

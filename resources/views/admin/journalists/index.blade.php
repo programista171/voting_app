@@ -19,8 +19,8 @@
 			</tr>
 			@foreach($journalists as $journalist)
 				<tr>
-					<td>Zdjęcie</td>
-					<td><a href="{{ route('journalists.show',$journalist->id) }}">{{ $journalist->name }}</a></td>
+					<td><img alt="Grafika przedstawiająca dziennikarza" src="{{ asset($journalist->image) }}"></td>
+					<td><a href="{{ route('journalists.show',$journalist->id) }}" id="journalist_name">{{ $journalist->name }}</a></td>
 					<td>{{$journalist->description}}</td>
 					<td>{{count($journalist->votes)}}</td>
 					<td><a href="{{ route('journalists.edit',$journalist->id) }}">Edytuj</a></td>

@@ -28,8 +28,8 @@
 								@endif
 						@else
 								<p>Zagłosowano</p>
-					@endif
-				</td>
+						@endif
+					</td>
 				</tr>
 			@endforeach
 		</table>
