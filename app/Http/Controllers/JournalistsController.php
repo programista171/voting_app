@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Journalist;
 use Illuminate\Http\Request;
-use App\Http\Requests\JournalistStoreRequest;
+use App\Http\Requests\StoreJournalistRequest;
 
 
 class JournalistsController extends Controller {
@@ -33,13 +33,14 @@ class JournalistsController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-	public function store(JournalistStoreRequest $request){
-		$request = $request->validated();
-		$journalist = new Journalist;
-		$journalist->name = $request->name;
-		$journalist->description = $request->description;
-		$journalist->save();
-		return redirect('journalists')->with('success', 'Dziennikarz został dodany');
+	public function store(\App\Http\Requests\JournalistStoreRequest $request){
+		$validated = $request->validated();
+		try{
+			$journalist = Journalist::create($validated);
+		} catch(Exception $exception){
+			return redirect('journalists')->with('error', 'Dodanie dziennikarza nie powiodło się');
+		}
+			return redirect('journalists')->with('success', 'Dziennikarz został dodany');
 	}//endfunction
 
     /**
@@ -69,8 +70,13 @@ class JournalistsController extends Controller {
      * @param  \App\Models\Journalist  $journalist
      * @return \Illuminate\Http\Response
      */
-	public function update(Request $request, Journalist $journalist){
-		$journalist->update($request->all());
+	public function update(\App\Http\Requests\JournalistStoreRequest $request, Journalist $journalist){
+		$validated = $request->validated();
+		try{
+			$journalist->update($validated);
+		} catch(Exception $exception){
+			return redirect('journalists')->with('error', 'Edycja nie powiodła się');
+		}
 		return redirect('journalists')->with('success', 'Edytowano');
 	}//endfunction
 

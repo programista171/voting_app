@@ -2,7 +2,7 @@
 
 @section('content')
 	<h1>Osoby głosujące na dziennikarza: {{$journalist->name}}</h1>
-	<table border="2px">
+	<table>
 		<tr>
 			<th>IP</th>
 			<th>USUŃ GŁOS</th>

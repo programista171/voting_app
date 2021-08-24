@@ -9,7 +9,7 @@ class Journalist extends Model
 {
     use HasFactory;
 	protected $fillable =[
-		'Name', 'description'
+		'name', 'description'
 	];
 	public function votes(){
 		return $this->hasMany(Vote::class, 'journalist_id');

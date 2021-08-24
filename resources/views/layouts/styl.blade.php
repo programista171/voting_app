@@ -18,6 +18,7 @@ li {
 li a {
 	display: block;
 	color: white;
+	background-color: #333;
 	text-align: center;
 	padding: 14px 16px;
 	text-decoration: none;
@@ -56,14 +57,35 @@ svg {
 }
 
 table {
-	border: 1px solid black;
+	
 	border-collapse: collapse;
 }
 
 th, td {
 	text-align: center;
 	padding: 5px;
+	border: none;
 }
 
+tr {
+	border-top: 1px solid black;
+}
 
+a:not(#journalist_name, li a, #pages a) {
+	display: block;
+	color: white;
+	background-color: rgb(0, 128, 255);
+	text-align: center;
+	padding: 5px 5px;
+	text-decoration: none;
+}
+
+a:hover:not(#journalist_name, li a, #pages a) {
+	background-color: rgb(0, 122, 204);
+}
+
+#add {
+	margin: 10px;
+	width: 100px;
+}
 </style>

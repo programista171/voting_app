@@ -1,13 +1,15 @@
 @extends('layouts.app1')
 
 @section('content')
-	@if(isset($success))
-		<p>{{$success}}</p>
+	@if(Session::has('success'))
+		<p>{{Session::get('success')}}</p>
 	@endif
 	<h1>Dotychczas dodani dziennikarze</h1>
-	<a href=" {{route('journalists.create') }}">Dodaj dziennikarza</a>
+	<div id="add">
+		<a href=" {{route('journalists.create') }}">Dodaj dziennikarza</a>
+	</div>
 	@if(count($journalists) > 0)
-		<table border="3px" class="table table-bordered">
+		<table>
 			<tr>
 				<th>Wizerunek</th>
 				<th>IMIĘ I NAZWISKO</th>
